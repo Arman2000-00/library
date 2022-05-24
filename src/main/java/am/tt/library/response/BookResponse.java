@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class BookResponse {
 
+  private int id;
+
   private String name;
 
   private String authorName;
@@ -16,5 +18,7 @@ public class BookResponse {
   private long count;
 
   private double price;
+
+  private int userId;
 
 }

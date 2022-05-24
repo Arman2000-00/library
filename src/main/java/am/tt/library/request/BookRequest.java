@@ -16,4 +16,6 @@ public class BookRequest {
   private long count;
 
   private double price;
+
+  private int userId;
 }

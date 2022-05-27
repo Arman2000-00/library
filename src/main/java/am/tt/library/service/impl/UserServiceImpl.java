@@ -65,7 +65,6 @@ public class UserServiceImpl implements UserService {
   @Override
   public UserResponse findByEmail(String email) {
     Optional<User> byEmail = userRepository.findByEmail(email);
-
     return userMapper.toResponse(byEmail.get());
   }
 }

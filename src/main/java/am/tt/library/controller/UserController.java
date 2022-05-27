@@ -52,6 +52,6 @@ public class UserController {
     if (currentUser.getUser().getUserType().equals(UserType.USER)) {
       return "redirect:/";
     }
-    return "redirect:/loggedEmployee";
+    return "redirect:/books/all";
   }
 }

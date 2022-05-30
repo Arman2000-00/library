@@ -53,10 +53,10 @@
     .menu-btn:after {
         content: "";
         position: absolute;
-        top: calc(50% - 1px);
+        top: calc(50% + 20px);
         left: 30%;
         width: 40%;
-        border-bottom: 2px solid #000;
+        border-bottom: 2px solid #f1ed05;
         transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 
@@ -197,7 +197,8 @@
 <link rel="stylesheet"
       href="https://cdn.datatables.net/scroller/2.0.5/css/scroller.jqueryui.min.css">
 
-<body>
+<body style="background-repeat:no-repeat; background-attachment: fixed;
+  background-size: 100% 100%;background-image:url('https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip')">
 <table id="example" class="display nowrap" style="width:100%; margin-top: 50px">
     <thead>
     <tr>
@@ -218,7 +219,9 @@
 
         <td><a th:if="${user.getId()==book.getUserId()}" th:href="@{/books/delete/(id=${book.id})}">Delete</a>
         </td>
-        <td><a th:href="@{/books/count/(id=${book.id})}">Book</a></td>
+<!--        <td><a th:href="@{/books/count/(id=${book.id})}">Book</a></td>-->
+        <td th:utext="(${@rentBookServiceImpl.existsByBookIdAndEmail(book.id,user.getEmail())} ? '<a href=&quot;http://localhost:8080/books/count?id='+${book.id}+'&quot;>Return</a>' : '<a href=&quot;http://localhost:8080/books/count?id='+${book.id}+'&quot;>Book</a>')"></td>
+
     </tr>
     </tbody>
 </table>
